@@ -55,9 +55,9 @@ N.B. Please note, that upon running the vagrant up command there may be people s
 
 ### Provisionment & customizing your box
 
-The `**cordeiro-box**` is initally provisioned using PuPHPet. A number of packages have been added on top since the initial build. If you would like to customize you box then you can either edit the `puphpet/config.yaml` or create a `puphpet/config-custom.yaml` file which overrides (higher-order priority) the config.yaml file to provision your custom required libraries. This file is also initally ignored by git so any customizations forked can keep your private customizations private. 
+The **cordeiro-box** is initally provisioned using PuPHPet. A number of packages have been added on top since the initial build. If you would like to customize you box then you can either edit the `puphpet/config.yaml` or create a `puphpet/config-custom.yaml` file which overrides (higher-order priority) the config.yaml file to provision your custom required libraries. This file is also initally ignored by git so any customizations forked can keep your private customizations private. 
 
-If you change anything (in the provisioning config files), you can have it take effect within your virtual machine by running `$ vagrant provision`. If you make changes before you actually spin up your `**cordeiro-box**`, the changes will be applied on your first `$ vagrant up`.
+If you change anything (in the provisioning config files), you can have it take effect within your virtual machine by running `$ vagrant provision`. If you make changes before you actually spin up your **cordeiro-box**, the changes will be applied on your first `$ vagrant up`.
 
 ### Webmin
 
@@ -65,14 +65,14 @@ Webmin is installed and can be found on the Guest machine on port 10000. However
 
 ### dev.local (not a direct IP address)
 
-When you first turn on the `**cordeiro-box**` VM and directly 'punch' in the ip address to your box a holder page will appear stating that you should set up your hosts file to access the local web environment that has been deployed. 
+When you first turn on the **cordeiro-box** VM and directly 'punch' in the ip address to your box a holder page will appear stating that you should set up your hosts file to access the local web environment that has been deployed. 
 
 You will first of all need to edit your hosts file (and possibly restart your machine) for changes to take effect. Here are two links with instructions to alter your host OS's hosts file.
 
 http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file
 http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/
 
-You will then need to alter your host file to re-direct `dev.local` (current hostname setup with `**cordeiro-box**`) and point that to the listening local IP of the vm (details of IP below).
+You will then need to alter your host file to re-direct `dev.local` (current hostname setup with **cordeiro-box**) and point that to the listening local IP of the vm (details of IP below).
 
 ### Credentials & how to logon
 
