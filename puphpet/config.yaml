@@ -122,11 +122,8 @@ server:
         - git-core
         - git-flow
         - vim
-        - vi
         - nano
         - mcrypt
-        - webmin
-        - passenger
         - apt-transport-https
         - ca-certificates
         - build-essential
@@ -280,18 +277,18 @@ php:
             - mcrypt
             - memcached
             - curl
+            - dev
             - mysql
             - common
             - json
             - gd
-            - fpm
             - geoip
             - imagick
             - cgi
-            - bcmath
             - sqlite
             - memcache
             - mbstring
+            - fpm
         pear: {  }
         pecl:
             - pecl_http
@@ -398,10 +395,10 @@ nodejs:
         - xlsx
         - d3
         - babel
-        - yeoman
         - googleapis
         - phonegap
         - squel
+        - pm2
 hhvm:
     install: '0'
     nightly: 0
