@@ -2,7 +2,7 @@
 
 The environment and initial tech stack of the **cordeiro-box** is why it is an attractive set-up to get started quickly for developers. It provides out of the box initialisation of large plethora of components and packages to start going and getting to what is important, 'The CODE'. 
 
-Here is an overview of the initialised environment.
+Here is an overview of the initialised environment. **Please note: The version numbers are the versions installed when first creating this github repo and initialising `vagrant up` as of 23rd June 2015. However, specific versions for packages have not been stated so when you perform your own `vagrant up` the puppet configuration initialiser may actually install new versions of the packages**.
 
 ## System Set-up
 
