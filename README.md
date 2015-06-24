@@ -4,7 +4,7 @@ Using Vagrant is a great tool to quickly and ultimately deploy a development and
 
 This is my ultimate development stack, which is a Vagrant Box provisioned and modified with PuPHPet. Whenever I need to provision a new development environment quickly and `headache-free` I quickly turn to my solution to deploy on VirtualBox an extensive development stack so that I can quickly start working on code.
 
-**For the environment and tech stack details installed on this box, please refer to cordeiro-box/ENVIRONMENT.md**
+**For the environment and tech stack details installed on this box, please refer to https://github.com/james-cordeiro/cordeiro-box/blob/master/ENVIRONMENT.md**
 
 ## It's easy (prerequisites)
 
@@ -41,7 +41,7 @@ N.B. Please note, that upon running the vagrant up command there may be people s
 
 ## Out of the box
 
-**For the environment and tech stack details installed on this box, please refer to ...***
+**For the environment and tech stack details installed on this box, please refer to https://github.com/james-cordeiro/cordeiro-box/blob/master/ENVIRONMENT.md**
 
 ## You may want to know
 
