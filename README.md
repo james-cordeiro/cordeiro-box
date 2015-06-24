@@ -4,9 +4,9 @@ Using Vagrant is a great tool to quickly and ultimately deploy a development and
 
 This is my ultimate development stack, which is a Vagrant Box provisioned and modified with PuPHPet. Whenever I need to provision a new development environment quickly and `headache-free` I quickly turn to my solution to deploy on VirtualBox an extensive development stack so that I can quickly start working on code.
 
-**For the environment and tech stack details installed on this box, please refer to ...***
+**For the environment and tech stack details installed on this box, please refer to cordeiro-box/ENVIRONMENT.md**
 
-## It's easy (pre-requistets)
+## It's easy (prerequisites)
 
 The instructions for deploying a development box in no time is straight forward on easy. 
 
@@ -16,17 +16,17 @@ The prequistets before installing the box are the following:
 2. Install VirtualBox (https://www.virtualbox.org/wiki/Downloads) - download one of the platform packages
 3. Install Git (https://git-scm.com/downloads) - Windows users may find this link useful: 
 
-Simply download the packages above (relevant to your system) and follow the instructions. Windows user may find it use to refer to this link here, ......... when installing Git. Any other issues is unfortunately beyond the scope of this readme but if you have made this far without headache then the next step is the easiest. 
+Simply download the packages above (relevant to your system) and follow the instructions. Windows users may find it useful to refer to this link here, ......... when installing Git. Any other issues is unfortunately beyond the scope of this readme but if you have made it this far without headache then the next step is the easiest. 
 
-First of all, create a directory somehwere on your computer/system. Here is a command line example (run it in sequence) on a macbook pro but you can simply use traditional point and click methods of creating a folder.
+First of all, create a directory somewhere on your computer/system. Here is a command line example (run it in sequence) on a macbook pro but you can simply use traditional point and click methods of creating a folder (if that is your preference).
 
-``` mac
+``` terminal
   $ cd /Users/sjoc20/
   $ mkdir vagrant
   $ cd vagrant
 ```
 
-Once you have a folder created, open up terminal/command prompt and navigate to the created folder. Something like, `cd DIR_PATH_HERE`. Once here, running the following in sequence:
+Once you have a folder created, open up your terminal/command prompt and navigate to the created folder. Something like, `cd DIR_PATH_HERE`. Once here, run the following in sequence:
 
 ``` shell
   $ git clone ....
