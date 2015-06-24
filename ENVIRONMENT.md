@@ -32,75 +32,69 @@ Ubuntu Trusty 14.04 LTS i836 (32 bit edition)
 
 ### Web Server
 
-- Nginx
-- PHP 5.6
-- Python 2.7
-- Ruby 1.9.3
-- Nodejs
+- Nginx v1.8.0
+- PHP v5.6
+- Python v2.7
+- Ruby v1.9.3
+- Nodejs v0.12.5
 
 ### Data
 
-- MySQL 5.6
+- MySQL v5.6
   - Username: dbuser, Password: 123
-- PostgreSQL 9.3
+- PostgreSQL v9.3
   - Username: root, Password: 123
-- MongoDB
+- MongoDB v2.4.14
   - Username: vagrant, password: 123
 - Redis
 
 ### Package Managers
 
-- Composer
-- Bower
-- RVM
-- NPM
-- GEM
+- Composer v1.0-dev
+- Bower v1.4.1
+- RVM v1.26.9
+- NPM v2.11.2
+- GEM v2.4.5
 
 ### Engines
 
-- SQLite
+- SQLite v3.8.2
 
 ## Installed Modules / Libraries / Programs
 
 - Node.js
-  - Express 
-  - Mongoose
-  - Socket.io
-  - Forever
-  - Mocha
-  - Sinon
-  - Chai
-  - Jasmine
-  - Colors
-  - Bower
-  - Passport
-  - gulp
-  - grunt
-  - gulp-uglify
-  - grunt-cli
-  - express-generator
-  - react
-  - yo
-  - yeoman v0.9.6 _(deprecated)_
-  - mongodb
-  - underscore
-  - q
-  - browserify
-  - bcrypt
-  - gulp-scss
-  - gulp-less
-  - gulp-imagemin
-  - angular
-  - ejs
-  - handlebars
-  - cron
-  - csv
-  - xlsx
-  - d3
-  - babel
-  - googleapis
-  - phonegap
-  - squel
-- git-flow
-- git-core
-- java
+  - Express v4.12.4
+  - Mongoose v4.0.6
+  - Socket.io v1.3.5
+  - Forever v0.14.1
+  - Mocha v2.2.5
+  - Sinon v1.15.0
+  - Chai v2.1.0
+  - Jasmine v2.3.1
+  - Colors v1.1.2
+  - Gulp v3.9.0
+  - Grunt v0.1.13
+  - React v0.13.3
+  - Yo v1.4.7
+  - Yeoman v0.9.6 _(deprecated)_
+  - Mongodb
+  - Underscore
+  - Q v1.4.1
+  - Browserify v10.2.4
+  - Bcrypt v0.8.3 (You also may want to install Bcrypt Linux package - not just this .js package)
+  - Gulp-scss 
+  - Gulp-less
+  - Gulp-imagemin
+  - Angular v1.4.1
+  - EJS v2.3.1
+  - Handlebars v3.0.3
+  - Cron v1.0.9
+  - CSV v0.4.5
+  - XLSX v0.8.0
+  - D3 v3.5.5
+  - Babel v5.6.4
+  - Googleapis v2.0.5
+  - Phonegap v0.9.4
+  - SQueL v4.0.0
+- Git Core v1.9.1
+- Git Flow v1.6.1 (AVH Edition)
