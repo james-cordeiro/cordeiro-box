@@ -11,8 +11,7 @@ Ubuntu Trusty 14.04 LTS i836 (32 bit edition)
   - Default Memory = 512
   - Default CPUs = 1
   - Default IP = "192.168.56.101"
-  
-Forwarded Ports (Host => Guest):
+  - Forwarded Ports (Host => Guest):
       
 | Host | Guest | Service
 -------|-------|--------
