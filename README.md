@@ -87,3 +87,112 @@ The IP address in use is: **192.168.56.101**
 | mysql            | root          | 123         |
 
 The vagrant user has full sudo privelleges. Please note that this is not an exhaustive list of user logins as there are password accounts to set-up for other packages (such as webmin, mongodb, postgreSQL, etc).
+
+
+
+Extra Reading
+=============
+
+It is important that files are ignored from git when working with .box files as these files end up being extremely big and exceed the file limit restrictions for GitHub and git in general. 
+
+Following the tips in the following link will guide you as to how to ignore local files from commiting upstream, these are normally configuration files that change often. It will guide you how to globally ignore files from all repos as perhaps your editor of choice generates automated configuration files that shouldn't be uploaded. Take a look to familirise yourself with your local git set-up. 
+
+Please note that there will already be a local gitignore for ignoring files with .box extensions so that you can safely include the vagrant box files in the same directory as the git repo but without committing these large files upstream.
+
+https://help.github.com/articles/ignoring-files
+
+
+
+------
+
+
+Windows Set-up
+================
+
+1. Install Git, Vagrant & Virtual Box pre-requsites for Windows.
+
+2. Git clone (or pull request) the vagrant_boxes repository
+
+3. Navigate Windows Command Prompt to the directory where your package.box you want to initlise is stored and copy the vagrantfile from the git folder to this directory. 
+
+4. Run in cmd:
+    ```Shell
+        $ vagrant box add [box name] package.box [--force]
+        $ vagrant up
+    ```
+    
+- please note that you may need to use the --force command to overwrite/update a box of the same name (or one that has already been added) when doing the vagrant box add command.
+- Please note that <b>vagrant init [box name]</b> was skipped in this process as the vagrantfile will have been already created with the neccessary configuration set-up for your box of choice; Performing a vagrant init command will reset your vagrantfile configuration (if forced to).
+
+<b>Important Note</b>:
+
+The package.box file is too BIG to be stored in git. You will need to obtain your package.box file from either the vagrant share cloud, downloaded by some other means or obtained from sharing with other developers e.g. stored on a USB.
+
+Any configuration updates should be pushed upstream to the vagrantfile to keep other developers in sync when they pull the downstream from the repo.
+
+The box you are using is more than likely to be set-up to respond to http://127.0.0.1:8080 (or http://localhost:8080) however, should you like to use any other domain such as http://mydomain.local then with windows 7 & 8 you may edit the windows hosts file (located here: <b>C:/Windows/System32/Drivers/etc</b>) and appending "http://127.0.0.1:8080 http://mydomain.local". You can call your domain anything you like, even just a singular word such as "domain". However, do remember this will stop you accessing a domain in the outside world from your machine with the same domain name that you choose to import into the hosts file so make you enter a unique name if you want to avoid this. Remember to restart your machine as this may be needed for the host file changes to take effect. You will finally need to configure your box to listen on http://mydomain.local as well (within the VM)
+
+--
+
+Among using 'vagrant ssh' or an ssh agent such as putty for windows you may want to use a program such as WinSCP to view the files and edit in GUI form. 
+
+You will need to use the following credentials in order to connect (if using WinSCP - FileZilla may need different instruction):
+
+* host: 127.0.0.1
+* Port: 2222
+* Username: root
+* Password: vagrant
+* Key File password: vagrant
+
+However, this will not work until the RSA private key (.ppk file) is also supplied (before attempting to login). If the box pulled from git does not contain a 'vagrant_rsa_private.ppk' to use then you will need to create the private key (for use with WinSCP) yourself.
+
+The following steps will help you:
+
+- convert the %USERPROFILE%\.vagrant.d\insecure_private_key to .ppk using PuTTYGen (recommended to back up this key seperately first)
+- use the .ppk key in your PuTTY session - configured in Connection > SSH > Auth > Private key file
+- use 'vagrant' as the passphrase
+
+
+
+------
+
+
+
+
+Setting up the remainder of your environment
+============================================
+
+The following readme is designed to get you set-up and ready to within the shortest time possible. If working in a team please do take a moment to read through and apply this neccessary set-up steps.
+
+Git
+----
+
+Some boxes (if not all) will have git installed. You will need to perform the following actions to personalise the git account in use for your box when working with git and development teams
+
+Amend the git config like so with the following shell commands (substituting where neccessary):
+
+```Shell
+    $ git config --global user.name "Your Name"
+    $ git config --global user.email "youremail@domain.com"
+```
+
+If you are using a service such as github or bitbucket then you will need to install the ssh keys neccessary to perform upstream pull/push requests to the online git repos. Instructions can be found here: https://help.github.com/articles/generating-ssh-keys
+
+Node
+----
+
+If the box / app you will be developing within your box uses nodejs (a node app) then upstart is recomended as the starting command for the node app to run as a daemon like service.
+
+Instructions for doing this can be followed here:
+
+- http://kvz.io/blog/2009/12/15/run-nodejs-as-a-service-on-ubuntu-karmic/
+- http://howtonode.org/deploying-node-upstart-monit
+    
+If the box you are 'vagrant up'-ing is/has a node app installed then it likely has a set-up for the upstart already installed too. It is liekly to called with the same name as the vagrant box name. More upstarts can be added of course (or deleted).
+
+An example command for upstart would be:
+
+```Shell
+    $ start my_box_name
+    $ stop my_box_name
+```
