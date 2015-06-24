@@ -11,19 +11,23 @@ Ubuntu Trusty 14.04 LTS i836 (32 bit edition)
   - Default Memory = 512
   - Default CPUs = 1
   - Default IP = "192.168.56.101"
-  - Forwarded Ports (Host => Guest):
-      - 2121    =>    21 (FTP)
-      - 2222    =>    22 (SSH)
-      - 2323    =>    23 (Telnet)
-      - 2525    =>    25 (SMTP)
-      - 6971    =>    3306 (MySQL)
-      - 6131    =>    5432 (PostgreSQL)
-      - 8080    =>    80 (HTTP)
-      - 4443    =>    443 (HTTPs)
-      - 4655    =>    465 (SMTPs)
-      - 10021   =>    10000 (Webmin)
-      - 2701    =>    27017 (MongoDB)
-      - 16379   =>    6379 (Redis)
+  
+Forwarded Ports (Host => Guest):
+      
+| Host | Guest | Service
+-------|-------|--------
+2121   | 21    | FTP
+2222   | 22    | SSH
+2323   | 23    | Telnet
+2525   | 25    | SMTP
+6971   | 3306  | MySQL
+6131   | 5432  | PostgreSQL
+8080   | 80    | HTTP
+4443   | 443   | HTTP(s)
+4655   | 465   | SMTP(s)
+10021  | 10000 | Webmin
+2701   | 27017 | MongoDB
+16379  | 6379  | Redis
 
 ## Installed Packages
 
