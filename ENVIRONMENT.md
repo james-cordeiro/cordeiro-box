@@ -37,13 +37,13 @@ Ubuntu Trusty 14.04 LTS i836 (32 bit edition)
 
 ### Data
 
-MySQL 5.6
+- MySQL 5.6
   - Username: dbuser, Password: 123
-PostgreSQL 9.3
+- PostgreSQL 9.3
   - Username: root, Password: 123
-MongoDB
+- MongoDB
   - Username: vagrant, password: 123
-Redis
+- Redis
 
 ### Package Managers
 
