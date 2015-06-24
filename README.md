@@ -37,7 +37,7 @@ First of all, create a directory somewhere on your computer/system. Here is a co
 Once you have a folder created, open up your terminal/command prompt and navigate to the created folder. Something like, `cd DIR_PATH_HERE`. Once here, run the following in sequence:
 
 ``` shell
-  $ git clone ....
+  $ git clone git@github.com:james-cordeiro/cordeiro-box.git
   $ vagrant up
 ```
 
