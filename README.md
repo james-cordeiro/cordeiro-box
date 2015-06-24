@@ -38,6 +38,7 @@ Once you have a folder created, open up your terminal/command prompt and navigat
 
 ``` shell
   $ git clone git@github.com:james-cordeiro/cordeiro-box.git
+  $ cd cordeiro-box
   $ vagrant up
 ```
 
