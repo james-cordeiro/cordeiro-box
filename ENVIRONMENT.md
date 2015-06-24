@@ -54,48 +54,53 @@ Ubuntu Trusty 14.04 LTS i836 (32 bit edition)
 - Bower
 - RVM
 - NPM
+- GEM
 
 ### Engines
 
 - SQLite
 
-## Installed Modules / Libraries
+## Installed Modules / Libraries / Programs
 
-- Express 
-- Mongoose
-- Socket.io
-- Forever
-- Mocha
-- Sinon
-- Chai
-- Jasmine
-- Colors
-- Bower
-- Passport
-- gulp
-- grunt
-- gulp-uglify
-- grunt-cli
-- express-generator
-- react
-- yo
-- yeoman v0.9.6 _(deprecated)_
-- mongodb
-- underscore
-- q
-- browserify
-- bcrypt
-- gulp-scss
-- gulp-less
-- gulp-imagemin
-- angular
-- ejs
-- handlebars
-- cron
-- csv
-- xlsx
-- d3
-- babel
-- googleapis
-- phonegap
-- squel
+- Node.js
+  - Express 
+  - Mongoose
+  - Socket.io
+  - Forever
+  - Mocha
+  - Sinon
+  - Chai
+  - Jasmine
+  - Colors
+  - Bower
+  - Passport
+  - gulp
+  - grunt
+  - gulp-uglify
+  - grunt-cli
+  - express-generator
+  - react
+  - yo
+  - yeoman v0.9.6 _(deprecated)_
+  - mongodb
+  - underscore
+  - q
+  - browserify
+  - bcrypt
+  - gulp-scss
+  - gulp-less
+  - gulp-imagemin
+  - angular
+  - ejs
+  - handlebars
+  - cron
+  - csv
+  - xlsx
+  - d3
+  - babel
+  - googleapis
+  - phonegap
+  - squel
+- git-flow
+- git-core
+- java
