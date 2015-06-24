@@ -8,15 +8,23 @@ This is my ultimate development stack, which is a Vagrant Box provisioned and mo
 
 ## It's easy (prerequisites)
 
-The instructions for deploying a development box in no time is straight forward on easy. 
+The instructions for deploying a development box in no time is straight forward and easy. 
 
-The prequistets before installing the box are the following:
+The prerequisites before installing the box are the following:
 
-1. Install Vagrant (https://www.vagrantup.com/downloads.html)
-2. Install VirtualBox (https://www.virtualbox.org/wiki/Downloads) - download one of the platform packages
-3. Install Git (https://git-scm.com/downloads) - Windows users may find this link useful: 
+1. Install Git (don't forget to add the public key to your account if using github or bitbucket etc)
+    - http://git-scm.com/download/win (Windows)
+    - http://git-scm.com/download/mac (Mac)
+    - http://git-scm.com/download/linux (linux)
+2. Install Vagrant
+    - https://www.vagrantup.com/downloads.html
+3. Install a VM emulator
+    - https://www.virtualbox.org/
+    - http://www.vbox.me/ (Portable Virtual box)
 
-Simply download the packages above (relevant to your system) and follow the instructions. Windows users may find it useful to refer to this link here, ......... when installing Git. Any other issues is unfortunately beyond the scope of this readme but if you have made it this far without headache then the next step is the easiest. 
+This link may be useful to you if working with a Windows machine (http://cygwin.com/install.html) 
+
+Simply download the packages above (relevant to your system) and follow the instructions. Windows users may find it useful to refer to http://cygwin.com/install.html for help installing Git. Any other issues is unfortunately beyond the scope of this readme but if you have made it this far without headache then the next step is the easiest. 
 
 First of all, create a directory somewhere on your computer/system. Here is a command line example (run it in sequence) on a macbook pro but you can simply use traditional point and click methods of creating a folder (if that is your preference).
 
