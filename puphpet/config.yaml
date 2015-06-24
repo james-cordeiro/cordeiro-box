@@ -64,8 +64,27 @@ vagrantfile:
                     - '--parser future'
         synced_folder:
             vflsf_zg1e4zpzjmzv:
-                source: ./
-                target: /usr/share/nginx/
+                source: ./php
+                target: /usr/share/nginx/php
+                sync_type: default
+                smb:
+                    smb_host: ''
+                    smb_username: ''
+                    smb_password: ''
+                rsync:
+                    args:
+                        - '--verbose'
+                        - '--archive'
+                        - '-z'
+                    exclude:
+                        - .vagrant/
+                        - .git/
+                    auto: 'true'
+                owner: www-data
+                group: www-data
+            vflsf_zg1e4zpzjmzp:
+                source: ./node
+                target: /usr/share/nginx/node
                 sync_type: default
                 smb:
                     smb_host: ''
@@ -107,6 +126,13 @@ server:
         - nano
         - mcrypt
         - webmin
+        - passenger
+        - apt-transport-https
+        - ca-certificates
+        - build-essential
+        - libssl-dev
+        - openssl
+        - pkg-config
 users_groups:
     install: '1'
     groups:
@@ -115,7 +141,14 @@ users_groups:
         - 'vagrant:admin:root'
 firewall:
     install: '1'
-    rules: {  }
+    rules:
+        fr_j8g7g6sbzmer:
+            port:
+                - '10000'
+                - '10021'
+            priority: '100'
+            proto: tcp
+            action: accept
 cron:
     install: '1'
     jobs: {  }
@@ -128,10 +161,10 @@ nginx:
     upstreams: {  }
     vhosts:
         nxv_d68rzscnz24s:
-            server_name: dev.local
+            server_name: php
             server_aliases:
                 - dev.local
-            www_root: /var/www/awesome
+            www_root: /usr/share/nginx/php/html
             listen_port: '80'
             index_files:
                 - index.html
@@ -170,6 +203,23 @@ nginx:
                     fast_cgi_params_extra:
                         - 'SCRIPT_FILENAME $request_filename'
                         - 'APP_ENV dev'
+        nxv_d68rzscnz23s:
+            server_name: node
+            server_aliases:
+                - node.local
+            www_root: /usr/share/nginx/node/html/
+            listen_port: '80'
+            client_max_body_size: 100m
+            locations:
+                nxvl_njm8mpbwe35r:
+                    location: /
+                    proxy_pass: '127.0.0.1:3000'
+                    proxy_http_version: 1.1
+                    proxy_set_header: 
+                        - 'Upgrade $http_upgrade' 
+                        - 'Connection "upgrade"'
+                        - 'Host $host'
+                    proxy_cache_bypass: '$http_upgrade' 
     proxies: {  }
 apache:
     install: '0'
