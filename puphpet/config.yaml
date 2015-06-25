@@ -157,7 +157,7 @@ nginx:
         proxy_buffers: '4 256k'
     upstreams: {  }
     vhosts:
-        nxv_d68rzscnz24s:
+        php_config:
             server_name: php
             server_aliases:
                 - dev.local
@@ -184,9 +184,6 @@ nginx:
                         - $uri
                         - $uri/
                         - /index.php$is_args$args
-                    fastcgi: ''
-                    fastcgi_index: ''
-                    fastcgi_split_path: ''
                 nxvl_ulqvsbytx62e:
                     location: '~ \.php$'
                     autoindex: off
@@ -200,7 +197,7 @@ nginx:
                     fast_cgi_params_extra:
                         - 'SCRIPT_FILENAME $request_filename'
                         - 'APP_ENV dev'
-        nxv_d68rzscnz23s:
+        node_config:
             server_name: node
             server_aliases:
                 - node.local
