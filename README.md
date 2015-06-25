@@ -29,9 +29,9 @@ Simply download the packages above (relevant to your system) and follow the inst
 First of all, create a directory somewhere on your computer/system. Here is a command line example (run it in sequence) on a macbook pro but you can simply use traditional point and click methods of creating a folder (if that is your preference).
 
 ``` terminal
-  $ cd /Users/sjoc20/
-  $ mkdir vagrant
-  $ cd vagrant
+  $ cd /%USERPROFILE%/%DIR%
+  $ mkdir vagrant_boxes
+  $ cd vagrant_boxes
 ```
 
 Once you have a folder created, open up your terminal/command prompt and navigate to the created folder. Something like, `cd DIR_PATH_HERE`. Once here, run the following in sequence:
@@ -63,95 +63,71 @@ If you change anything (in the provisioning config files), you can have it take 
 
 ### Webmin
 
-Webmin is installed and can be found on the Guest machine on port 10000. However, the firewall settings on the box will need to be adjusted to accept requests for that port. In addition to this, the configuration of webmin will need to be changed to run only https. You can find helpful documentation directly on the Webmin website (http://www.webmin.com/docs.html). 
+Webmin is installed and can be found on the Guest machine on port 10000 (from the host). The firewall settings and ports have already been opended but you may want to install the Nginx module to be available from within the interface. Instructions and module for Nginx can be found here: http://www.webmin.com/cgi-bin/search_third.cgi?search=nginx
+
+In addition to this, the configuration of webmin will need to be changed to run only on https (you can just leave it as it's a development build but good to know). You can find helpful documentation directly on the Webmin website (http://www.webmin.com/docs.html). 
 
 ### dev.local (not a direct IP address)
 
-When you first turn on the **cordeiro-box** VM and directly 'punch' in the ip address to your box a holder page will appear stating that you should set up your hosts file to access the local web environment that has been deployed. 
+When you first turn on the **cordeiro-box** VM and directly 'punch' in the ip address to your box a holder page will appear stating that you should set up your hosts file to access the local web environment that has been deployed through a domain name input. 
+`cordeiro-box` has already been configured to accept `dev.local` as the default route into a Nginx PHP-fpm services web envrionment and `node.local` which routes requests to a Nodejs service.
 
 You will first of all need to edit your hosts file (and possibly restart your machine) for changes to take effect. Here are two links with instructions to alter your host OS's hosts file.
 
 http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file
 http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/
 
-You will then need to alter your host file to re-direct `dev.local` (current hostname setup with **cordeiro-box**) and point that to the listening local IP of the vm (details of IP below).
+You will then need to alter your host file to re-direct `dev.local` & `node.local` (current hostname setup with **cordeiro-box**) and point that to the listening local IP of the vm (details of IP below).
 
 ### Credentials & how to logon
 
-The passwords and users can be found on the `puphpet/config.yaml` file. However, here are a quick set of details to get you up and running your box in next to no time.
+The passwords and users can be found on the `puphpet/config.yaml` file. However, here are a quick set of details to get you up and running into your box in next to no time.
 
-The IP address in use is: **192.168.56.101**
+The IP address in use is: ###**192.168.56.101**
 
 | Service          | Username      | Passwd      |
 | ---------------- |:-------------:| -----------:|
 | ssh / main user  | vagrant       | vagrant     |
 | mysql            | root          | 123         |
+| webmin	       | root	       | vagrant     |
 
-The vagrant user has full sudo privelleges. Please note that this is not an exhaustive list of user logins as there are password accounts to set-up for other packages (such as webmin, mongodb, postgreSQL, etc).
+The vagrant user has full sudo privileges. Please note that this is not an exhaustive list of user logins as there are password accounts to set-up for other packages (such as mongodb, postgreSQL, etc).
+
+
+
+
 
 
 
 Extra Reading
 =============
 
-It is important that files are ignored from git when working with .box files as these files end up being extremely big and exceed the file limit restrictions for GitHub and git in general. 
+It is important that files are ignored from git when working with .box files as these files end up being extremely big and exceed the file limit restrictions for GitHub and git in general. There is a newer service from GitHub that allows for versioning larger files. It is recommened that box files (or larger files in general) are uploaded through that service if you wish to version packed vagrant boxes (outside of the vagrant cloud service)
 
-Following the tips in the following link will guide you as to how to ignore local files from commiting upstream, these are normally configuration files that change often. It will guide you how to globally ignore files from all repos as perhaps your editor of choice generates automated configuration files that shouldn't be uploaded. Take a look to familirise yourself with your local git set-up. 
-
-Please note that there will already be a local gitignore for ignoring files with .box extensions so that you can safely include the vagrant box files in the same directory as the git repo but without committing these large files upstream.
+Please note that there will already be a local .gitignore for ignoring files with .box extensions so that you can safely include the vagrant box files in the same directory as the git repo but without committing these large files upstream.
 
 https://help.github.com/articles/ignoring-files
 
-
-
-------
-
-
-Windows Set-up
-================
-
-1. Install Git, Vagrant & Virtual Box pre-requsites for Windows.
-
-2. Git clone (or pull request) the vagrant_boxes repository
-
-3. Navigate Windows Command Prompt to the directory where your package.box you want to initlise is stored and copy the vagrantfile from the git folder to this directory. 
-
-4. Run in cmd:
-    ```Shell
-        $ vagrant box add [box name] package.box [--force]
-        $ vagrant up
-    ```
-    
-- please note that you may need to use the --force command to overwrite/update a box of the same name (or one that has already been added) when doing the vagrant box add command.
-- Please note that <b>vagrant init [box name]</b> was skipped in this process as the vagrantfile will have been already created with the neccessary configuration set-up for your box of choice; Performing a vagrant init command will reset your vagrantfile configuration (if forced to).
-
-<b>Important Note</b>:
-
-The package.box file is too BIG to be stored in git. You will need to obtain your package.box file from either the vagrant share cloud, downloaded by some other means or obtained from sharing with other developers e.g. stored on a USB.
-
-Any configuration updates should be pushed upstream to the vagrantfile to keep other developers in sync when they pull the downstream from the repo.
-
-The box you are using is more than likely to be set-up to respond to http://127.0.0.1:8080 (or http://localhost:8080) however, should you like to use any other domain such as http://mydomain.local then with windows 7 & 8 you may edit the windows hosts file (located here: <b>C:/Windows/System32/Drivers/etc</b>) and appending "http://127.0.0.1:8080 http://mydomain.local". You can call your domain anything you like, even just a singular word such as "domain". However, do remember this will stop you accessing a domain in the outside world from your machine with the same domain name that you choose to import into the hosts file so make you enter a unique name if you want to avoid this. Remember to restart your machine as this may be needed for the host file changes to take effect. You will finally need to configure your box to listen on http://mydomain.local as well (within the VM)
 
 --
 
 Among using 'vagrant ssh' or an ssh agent such as putty for windows you may want to use a program such as WinSCP to view the files and edit in GUI form. 
 
-You will need to use the following credentials in order to connect (if using WinSCP - FileZilla may need different instruction):
+You will need to use the following credentials in order to connect (if using WinSCP - FileZilla may need different instructions):
 
-* host: 127.0.0.1
-* Port: 2222
-* Username: root
+* host: 192.168.56.101
+* Port: 22
+* Username: vagrant
 * Password: vagrant
-* Key File password: vagrant
+* Created SSH Key File
 
-However, this will not work until the RSA private key (.ppk file) is also supplied (before attempting to login). If the box pulled from git does not contain a 'vagrant_rsa_private.ppk' to use then you will need to create the private key (for use with WinSCP) yourself.
+However, this will not work until the RSA private key (.ppk file) is also supplied (before attempting to login). To create the private key (for use with WinSCP) you can follow the following steps. Please refer to you OS and User Agent of chose to know how to create SSH Key Files.
 
 The following steps will help you:
 
 - convert the %USERPROFILE%\.vagrant.d\insecure_private_key to .ppk using PuTTYGen (recommended to back up this key seperately first)
 - use the .ppk key in your PuTTY session - configured in Connection > SSH > Auth > Private key file
-- use 'vagrant' as the passphrase
+- use 'vagrant' as the passphrase or leave empty 
 
 
 
@@ -163,7 +139,7 @@ The following steps will help you:
 Setting up the remainder of your environment
 ============================================
 
-The following readme is designed to get you set-up and ready to within the shortest time possible. If working in a team please do take a moment to read through and apply this neccessary set-up steps.
+The following readme is designed to get you set-up and ready to within the shortest time possible with Git and Windows environment. If working in a team please do take a moment to read through and apply these neccessary set-up steps.
 
 Git
 ----
@@ -177,7 +153,8 @@ Amend the git config like so with the following shell commands (substituting whe
     $ git config --global user.email "youremail@domain.com"
 ```
 
-If you are using a service such as github or bitbucket then you will need to install the ssh keys neccessary to perform upstream pull/push requests to the online git repos. Instructions can be found here: https://help.github.com/articles/generating-ssh-keys
+If you are using a service such as github or bitbucket then you will need to install the ssh keys neccessary to perform pull/push requests to the online git repos. Instructions can be found here: https://help.github.com/articles/generating-ssh-keys
+
 
 Node
 ----
@@ -189,7 +166,7 @@ Instructions for doing this can be followed here:
 - http://kvz.io/blog/2009/12/15/run-nodejs-as-a-service-on-ubuntu-karmic/
 - http://howtonode.org/deploying-node-upstart-monit
     
-If the box you are 'vagrant up'-ing is/has a node app installed then it likely has a set-up for the upstart already installed too. It is liekly to called with the same name as the vagrant box name. More upstarts can be added of course (or deleted).
+If the box you are 'vagrant up'-ing is/has a node app installed then it likely has a set-up for the upstart already installed too. It is likely to be called with the same name as the vagrant box name. More upstarts can be added of course (or deleted).
 
 An example command for upstart would be:
 
@@ -197,3 +174,5 @@ An example command for upstart would be:
     $ start my_box_name
     $ stop my_box_name
 ```
+
+**This repo doesn't use upstart but instead uses pm2 to start the node daemon service. It then manages it along with Nginx serving the static files.
