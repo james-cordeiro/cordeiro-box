@@ -40,6 +40,7 @@ Once you have a folder created, open up your terminal/command prompt and navigat
   $ git clone git@github.com:james-cordeiro/cordeiro-box.git
   $ cd cordeiro-box
   $ vagrant up
+  $ sh /vagrant/puphpet/files/startup-always/run.sh
 ```
 
 When you run the `vagrant up` command, make sure that the git cloned repo has put the vagrantfile file in the same directory as you run the `vagrant up` command.
