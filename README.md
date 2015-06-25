@@ -40,6 +40,7 @@ Once you have a folder created, open up your terminal/command prompt and navigat
   $ git clone git@github.com:james-cordeiro/cordeiro-box.git
   $ cd cordeiro-box
   $ vagrant up
+  $ vagrant ssh
   $ sh /vagrant/puphpet/files/startup-always/run.sh
 ```
 
@@ -83,7 +84,7 @@ You will then need to alter your host file to re-direct `dev.local` & `node.loca
 
 The passwords and users can be found on the `puphpet/config.yaml` file. However, here are a quick set of details to get you up and running into your box in next to no time.
 
-The IP address in use is: ###**192.168.56.101**
+The IP address in use is: **192.168.56.101**
 
 | Service          | Username      | Passwd      |
 | ---------------- |:-------------:| -----------:|
