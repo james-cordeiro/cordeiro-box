@@ -68,6 +68,8 @@ Webmin is installed and can be found on the Guest machine on port 10000 (from th
 
 In addition to this, the configuration of webmin will need to be changed to run only on https (you can just leave it as it's a development build but good to know). You can find helpful documentation directly on the Webmin website (http://www.webmin.com/docs.html). 
 
+Nginx module for Webmin: http://www.justindhoffman.com/sites/justindhoffman.com/files/nginx-0.08.wbm__0.gz
+
 ### dev.local (not a direct IP address)
 
 When you first turn on the **cordeiro-box** VM and directly 'punch' in the ip address to your box a holder page will appear stating that you should set up your hosts file to access the local web environment that has been deployed through a domain name input. 
