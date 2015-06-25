@@ -15,7 +15,7 @@ sudo /usr/share/webmin/changepass.pl /etc/webmin root vagrant
 sudo mkdir /usr/share/nginx/php
 sudo mkdir /usr/share/nginx/php/html
 cd /usr/share/nginx/php/html
-echo "<?php php_info(); ?>" | sudo tee index.php
+echo "<?php phpinfo(); ?>" | sudo tee index.php
 
 sudo mkdir /usr/share/nginx/node
 sudo mkdir /usr/share/nginx/node/html
