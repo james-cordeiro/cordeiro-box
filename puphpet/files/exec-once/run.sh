@@ -25,8 +25,6 @@ http.createServer(function (req, res) {
   res.end('Hello Node\n’);
 }).listen(3000, '127.0.0.1');
 console.log('Server running at http://127.0.0.1:3000/');
-
-
 EOF
 
 #sudo npm install pm2 -g --unsafe-perm 2&>1 >/dev/null
