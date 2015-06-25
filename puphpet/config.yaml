@@ -43,6 +43,9 @@ vagrantfile:
                 vflnp_jfptinx4z1oa:
                     host: '16379'
                     guest: '6379'
+                vflnp_jfptinx4z1ea:
+                    host: '3001'
+                    guest: '3000'
         post_up_message: ''
         provider:
             virtualbox:
