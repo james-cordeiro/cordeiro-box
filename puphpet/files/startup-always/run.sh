@@ -12,8 +12,11 @@ sudo /usr/share/webmin/changepass.pl /etc/webmin root vagrant
 # CONFIGURE WEB & APP SERVER
 sudo mkdir /usr/share/nginx/php
 sudo mkdir /usr/share/nginx/php/html
+
 cd /usr/share/nginx/php/html
-echo "<?php phpinfo(); ?>" | sudo tee index.php
+sudo tee index.php > /dev/null <<EOF 
+<?php phpinfo(); ?>
+EOF
 
 sudo mkdir /usr/share/nginx/node
 sudo mkdir /usr/share/nginx/node/html
@@ -27,9 +30,4 @@ http.createServer(function (req, res) {
 console.log('Server running at http://127.0.0.1:3000/');
 EOF
 
-#sudo npm install pm2 -g --unsafe-perm 2&>1 >/dev/null
 cd /usr/share/nginx/node/html && sudo pm2 start app.js
-
-sudo rm -r /usr/share/nginx
-
-
