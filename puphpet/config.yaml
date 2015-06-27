@@ -415,6 +415,7 @@ nodejs:
         - phonegap
         - squel
         - pm2
+        - nodemon
 hhvm:
     install: '0'
     nightly: 0
