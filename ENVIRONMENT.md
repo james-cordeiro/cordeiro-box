@@ -98,5 +98,6 @@ Ubuntu Trusty 14.04 LTS i836 (32 bit edition)
   - Googleapis v2.0.5
   - Phonegap v0.9.4
   - SQueL v4.0.0
+  - Nodemon v1.3.7
 - Git Core v1.9.1
 - Git Flow v1.6.1 (AVH Edition)
