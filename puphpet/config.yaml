@@ -417,6 +417,7 @@ nodejs:
         - pm2
         - nodemon
         - browserify
+        - testling
 hhvm:
     install: '0'
     nightly: 0
