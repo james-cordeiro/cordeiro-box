@@ -100,5 +100,6 @@ Ubuntu Trusty 14.04 LTS i836 (32 bit edition)
   - SQueL v4.0.0
   - Nodemon v1.3.7
   - Browserify v10.2.4
+  - Testling
 - Git Core v1.9.1
 - Git Flow v1.6.1 (AVH Edition)
