@@ -416,6 +416,7 @@ nodejs:
         - squel
         - pm2
         - nodemon
+        - browserify
 hhvm:
     install: '0'
     nightly: 0
